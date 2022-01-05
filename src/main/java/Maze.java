@@ -49,7 +49,7 @@ public class Maze {
     public void draw(TextGraphics newTextGraphics) {
         this.graphics = newTextGraphics;
 
-        this.graphics.setBackgroundColor(TextColor.Factory.fromString("#336699")); //TODO: change this later?
+        this.graphics.setBackgroundColor(TextColor.Factory.fromString("#000000")); //TODO: change this later?
         this.graphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height), ' ');
 
         this.pacman.draw(graphics);
