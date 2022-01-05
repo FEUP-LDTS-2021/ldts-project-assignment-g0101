@@ -1,0 +1,8 @@
+Start Game when player presses an arrow key
+(pacman is always moving)
+up arrow pacman faces up
+down arrow pacman faces down
+left arrow pacman faces left
+right arrow pacman faces right
+eats a point when he touches it and score increases
+eats a powerup when he touches it, ghosts turn (x color) and are edible for extra score
