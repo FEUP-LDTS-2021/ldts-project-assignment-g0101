@@ -1,17 +1,19 @@
+Wall.java
+ Wall
 Position.java
  Position
-Point.java
- Point
+Element.java
+ Element
 Pacman.java
  Pacman
 Ghost.java
  Ghost
-Wall.java
- Wall
-Element.java
- Element
 Application.java
  Application
+Point.java
+ Point
+MapReader.java
+ MapReader
 Maze.java
  Maze
 Game.java

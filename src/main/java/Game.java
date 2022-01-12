@@ -7,6 +7,7 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 
+import java.io.File;
 import java.io.IOException;
 
 public class Game {
@@ -15,7 +16,7 @@ public class Game {
 
     public Game() {
         try {
-            TerminalSize terminalSize = new TerminalSize(40, 20);
+            TerminalSize terminalSize = new TerminalSize(28, 30);
             DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory()
                     .setInitialTerminalSize(terminalSize);
             Terminal terminal = terminalFactory.createTerminal();
@@ -29,8 +30,8 @@ public class Game {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        this.maze = new Maze(40,20);  //TODO: fix Maze's dimensions
+        MapReader mapReader = new MapReader(new File("basemaze.txt"));//TODO: Un-hardcode this
+        this.maze = new Maze(mapReader.readMap());  //TODO: fix Maze's dimensions DONE??(unsure what you mean by this)
     }
 
     public void run(){  //TODO : make this run on a different thread
