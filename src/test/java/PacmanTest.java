@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 public class PacmanTest {
     //TODO: Implement tests for the functionalities described in the text files
 
-    Element pac;
+    Pacman pac;
     Game game;
 
     @BeforeEach
@@ -17,10 +17,31 @@ public class PacmanTest {
 
     @Test
     public void exists(){
+
         Assertions.assertNotNull(pac);
     }
 
+    @Test
     public void moveLeft(){
+        pac.moveLeft();
+        Assertions.assertEquals(9, pac.getX());
+    }
 
+    @Test
+    public void moveRight(){
+        pac.moveRight();
+        Assertions.assertEquals(11, pac.getX());
+    }
+
+    @Test
+    public void moveUp(){
+        pac.moveUp();
+        Assertions.assertEquals(9, pac.getY());
+    }
+
+    @Test
+    public void moveDown(){
+        pac.moveDown();
+        Assertions.assertEquals(11, pac.getY());
     }
 }
