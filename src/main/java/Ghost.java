@@ -1,6 +1,6 @@
 import com.googlecode.lanterna.graphics.TextGraphics;
 
-public class Ghost extends Element {
+public class Ghost extends GameCharacter {
 
     public Ghost(int x, int y) {
         super(x, y);

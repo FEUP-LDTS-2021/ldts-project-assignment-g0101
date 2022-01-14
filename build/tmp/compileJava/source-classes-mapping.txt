@@ -8,14 +8,16 @@ Wall.java
  Wall
 Point.java
  Point
-Pacman.java
- Pacman
-Ghost.java
- Ghost
 Element.java
  Element
 Maze.java
  Maze
  Maze$1
+Pacman.java
+ Pacman
+Ghost.java
+ Ghost
 Game.java
  Game
+GameCharacter.java
+ GameCharacter

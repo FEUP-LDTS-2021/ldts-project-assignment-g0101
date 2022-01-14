@@ -23,29 +23,29 @@ public class GhostTest {
     @Test
     public void moveLeft(){
         ghost.moveLeft();
-        Assertions.assertEquals(9, ghost.getX());
-        Assertions.assertEquals(10,ghost.getY());
+        Assertions.assertEquals(9, ghost.getPosition().getX());
+        Assertions.assertEquals(10,ghost.getPosition().getX());
     }
 
     @Test
     public void moveRight(){
         ghost.moveRight();
-        Assertions.assertEquals(11, ghost.getX());
-        Assertions.assertEquals(10, ghost.getY());
+        Assertions.assertEquals(11, ghost.getPosition().getX());
+        Assertions.assertEquals(10, ghost.getPosition().getX());
     }
 
     @Test
     public void moveUp(){
         ghost.moveUp();
-        Assertions.assertEquals(10, ghost.getX());
-        Assertions.assertEquals(9, ghost.getY());
+        Assertions.assertEquals(10, ghost.getPosition().getX());
+        Assertions.assertEquals(9, ghost.getPosition().getX());
 
     }
 
     @Test
     public void moveDown(){
         ghost.moveDown();
-        Assertions.assertEquals(10, ghost.getX());
-        Assertions.assertEquals(11, ghost.getY());
+        Assertions.assertEquals(10, ghost.getPosition().getX());
+        Assertions.assertEquals(11, ghost.getPosition().getX());
     }
 }
