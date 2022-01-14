@@ -15,9 +15,9 @@ Maze.java
  Maze$1
 Pacman.java
  Pacman
-Ghost.java
- Ghost
-Game.java
- Game
 GameCharacter.java
  GameCharacter
+Game.java
+ Game
+Ghost.java
+ Ghost
