@@ -25,23 +25,28 @@ public class PacmanTest {
     public void moveLeft(){
         pac.moveLeft();
         Assertions.assertEquals(9, pac.getX());
+        Assertions.assertEquals(10,pac.getY());
     }
 
     @Test
     public void moveRight(){
         pac.moveRight();
         Assertions.assertEquals(11, pac.getX());
+        Assertions.assertEquals(10,pac.getY());
     }
 
     @Test
     public void moveUp(){
         pac.moveUp();
+        Assertions.assertEquals(10,pac.getX());
         Assertions.assertEquals(9, pac.getY());
+
     }
 
     @Test
     public void moveDown(){
         pac.moveDown();
+        Assertions.assertEquals(10,pac.getX());
         Assertions.assertEquals(11, pac.getY());
     }
 }
