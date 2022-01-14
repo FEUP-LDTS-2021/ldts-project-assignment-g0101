@@ -54,8 +54,14 @@ public class Maze {
     }
 
     private List<Ghost> createGhostsList() {
-        //TODO: createGhostsList() functionality
-        return null;
+        List<Ghost> mghosts = new ArrayList<>();
+
+        mghosts.add(new Ghost(12,13));
+        mghosts.add(new Ghost(13,13));
+        mghosts.add(new Ghost(14,13));
+        mghosts.add(new Ghost(15,13));
+
+        return mghosts;
     }
 
     public void processKey(KeyStroke key) {
@@ -90,9 +96,8 @@ public class Maze {
             point.draw(graphics);
         this.pacman.draw(graphics);
 
-        /* //TODO: Un-comment these when their lists are created
         for (Ghost ghost : this.ghosts)
             ghost.draw(graphics);
-        */
+
     }
 }
