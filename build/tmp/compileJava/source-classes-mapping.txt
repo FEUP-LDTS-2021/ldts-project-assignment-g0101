@@ -1,20 +1,21 @@
-Maze.java
- Maze
-Position.java
- Position
-Point.java
- Point
-Pacman.java
- Pacman
-Ghost.java
- Ghost
-Application.java
- Application
 MapReader.java
  MapReader
-Game.java
- Game
+Position.java
+ Position
+Application.java
+ Application
+Ghost.java
+ Ghost
+Pacman.java
+ Pacman
+Point.java
+ Point
 Element.java
  Element
 Wall.java
  Wall
+Maze.java
+ Maze
+ Maze$1
+Game.java
+ Game

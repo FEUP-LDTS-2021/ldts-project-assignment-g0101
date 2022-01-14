@@ -26,7 +26,7 @@ public class Maze {
         this.height= gameMap.length;
         this.width = gameMap[0].length;
 
-        this.pacman = new Pacman(14,23);  //TODO: fix pacman starting coordinates
+        this.pacman = new Pacman(13,16);  //TODO: fix pacman starting coordinates
         this.walls = createMaze(gameMap);
         this.points = createPointsList(gameMap);
         this.ghosts = createGhostsList();
@@ -62,7 +62,20 @@ public class Maze {
     }
 
     public void processKey(KeyStroke key) {
-        //TODO: implement Pacman move
+        switch (key.getKeyType()) {
+            case ArrowLeft -> {
+                pacman.moveLeft();
+            }
+            case ArrowRight -> {
+                pacman.moveRight();
+            }
+            case ArrowUp -> {
+                pacman.moveUp();
+            }
+            case ArrowDown -> {
+                pacman.moveDown();
+            }
+        }
     }
 
     public void draw(TextGraphics newTextGraphics) {
@@ -71,7 +84,6 @@ public class Maze {
         this.graphics.setBackgroundColor(TextColor.Factory.fromString("#000000")); //TODO: change this later?
         this.graphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height), ' ');
 
-        this.pacman.draw(graphics);
 
 
         for (Wall wall : this.walls)
@@ -79,6 +91,8 @@ public class Maze {
 
         for (Point point : this.points)
             point.draw(graphics);
+        this.pacman.draw(graphics);
+
         /* //TODO: Un-comment these when their lists are created
         for (Ghost ghost : this.ghosts)
             ghost.draw(graphics);

@@ -11,13 +11,9 @@ public class Wall extends Element{
 
     @Override
     public void draw(TextGraphics graphics) {
-        graphics.setForegroundColor(
-                TextColor.Factory.fromString("#FFFF33"));
+        graphics.setForegroundColor(TextColor.Factory.fromString("#FFFF33"));
         graphics.enableModifiers(SGR.BOLD);
-        graphics.putString(new
-                        TerminalPosition(position.getX(), position.getY()),
-                "X");
-        graphics.setCharacter(position.getX(), position.getY(),
-                TextCharacter.fromCharacter('#')[0]);
+        graphics.putString(new TerminalPosition(position.getX(), position.getY()), "X");
+        graphics.setCharacter(position.getX(), position.getY(), TextCharacter.fromCharacter('#')[0]);
     }
 }

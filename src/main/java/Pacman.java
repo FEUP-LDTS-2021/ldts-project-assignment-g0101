@@ -1,3 +1,7 @@
+import com.googlecode.lanterna.SGR;
+import com.googlecode.lanterna.TerminalPosition;
+import com.googlecode.lanterna.TextCharacter;
+import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
 public class Pacman extends Element {
@@ -6,11 +10,6 @@ public class Pacman extends Element {
     }
 
     //TODO: Implement Movement
-
-    @Override
-    public void draw(TextGraphics graphics) {
-        //TODO: Draw Elements.Pacman
-    }
 
     public int getX() {
         return this.position.getX();
@@ -50,5 +49,12 @@ public class Pacman extends Element {
 
     public void moveUp() {
         this.setPosition(new Position(position.getX(), position.getY() - 1));
+    }
+
+    public void draw(TextGraphics graphics) {
+        graphics.setForegroundColor(TextColor.Factory.fromString("#FFFF33"));
+        graphics.enableModifiers(SGR.BOLD);
+        graphics.putString(new TerminalPosition(position.getX(), position.getY()), "X");
+        graphics.setCharacter(position.getX(), position.getY(), TextCharacter.fromCharacter('C')[0]);
     }
 }
