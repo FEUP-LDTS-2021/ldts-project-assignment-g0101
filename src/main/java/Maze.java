@@ -7,7 +7,7 @@ import com.googlecode.lanterna.input.KeyStroke;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Maze {
+public class Maze implements Collision{
     private int width;
     private int height;
 
@@ -64,6 +64,20 @@ public class Maze {
         return mghosts;
     }
 
+    @Override
+    public boolean characterCanMoveTo( Position position) {
+        for(Wall wall : this.walls){
+            System.out.println(wall.position.getX() + " " + wall.position.getY());
+            if (wall.position.equals(position)) return false;
+        }
+        return true;
+    }
+
+    @Override
+    public void characterInteractsWithElement(GameCharacter gameCharacter, Position position) {
+
+    }
+
     public void processKey(KeyStroke key) {
         switch (key.getKeyType()) {
             case ArrowLeft -> {
@@ -88,16 +102,17 @@ public class Maze {
         this.graphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height), ' ');
 
 
-
         for (Wall wall : this.walls)
             wall.draw(graphics);
 
         for (Point point : this.points)
             point.draw(graphics);
-        this.pacman.draw(graphics);
 
         for (Ghost ghost : this.ghosts)
             ghost.draw(graphics);
 
+        this.pacman.draw(graphics);
     }
+
+
 }
