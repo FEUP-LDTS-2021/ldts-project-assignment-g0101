@@ -7,7 +7,7 @@ import com.googlecode.lanterna.input.KeyStroke;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Maze {
+public class Maze implements Collision{
     private int width;
     private int height;
 
@@ -64,18 +64,35 @@ public class Maze {
         return mghosts;
     }
 
+    @Override
+    public boolean characterCanMoveTo( Position position) {
+        for(Wall wall : this.walls){
+            if (wall.position.equals(position)) return false;
+        }
+        return true;
+    }
+
+    @Override
+    public void characterInteractsWithElement(GameCharacter gameCharacter, Position position) {
+
+    }
+
     public void processKey(KeyStroke key) {
         switch (key.getKeyType()) {
             case ArrowLeft -> {
+                if (characterCanMoveTo(new Position(pacman.position.getX() - 1,pacman.position.getY())))
                 pacman.moveLeft();
             }
             case ArrowRight -> {
+                if (characterCanMoveTo(new Position(pacman.position.getX() +1,pacman.position.getY())))
                 pacman.moveRight();
             }
             case ArrowUp -> {
+                if (characterCanMoveTo(new Position(pacman.position.getX() ,pacman.position.getY() - 1)))
                 pacman.moveUp();
             }
             case ArrowDown -> {
+                if (characterCanMoveTo(new Position(pacman.position.getX() ,pacman.position.getY() +1)))
                 pacman.moveDown();
             }
         }
@@ -88,16 +105,17 @@ public class Maze {
         this.graphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height), ' ');
 
 
-
         for (Wall wall : this.walls)
             wall.draw(graphics);
 
         for (Point point : this.points)
             point.draw(graphics);
-        this.pacman.draw(graphics);
 
         for (Ghost ghost : this.ghosts)
             ghost.draw(graphics);
 
+        this.pacman.draw(graphics);
     }
+
+
 }
