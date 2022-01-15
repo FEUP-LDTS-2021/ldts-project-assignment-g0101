@@ -67,7 +67,6 @@ public class Maze implements Collision{
     @Override
     public boolean characterCanMoveTo( Position position) {
         for(Wall wall : this.walls){
-            System.out.println(wall.position.getX() + " " + wall.position.getY());
             if (wall.position.equals(position)) return false;
         }
         return true;
@@ -81,15 +80,19 @@ public class Maze implements Collision{
     public void processKey(KeyStroke key) {
         switch (key.getKeyType()) {
             case ArrowLeft -> {
+                if (characterCanMoveTo(new Position(pacman.position.getX() - 1,pacman.position.getY())))
                 pacman.moveLeft();
             }
             case ArrowRight -> {
+                if (characterCanMoveTo(new Position(pacman.position.getX() +1,pacman.position.getY())))
                 pacman.moveRight();
             }
             case ArrowUp -> {
+                if (characterCanMoveTo(new Position(pacman.position.getX() ,pacman.position.getY() - 1)))
                 pacman.moveUp();
             }
             case ArrowDown -> {
+                if (characterCanMoveTo(new Position(pacman.position.getX() ,pacman.position.getY() +1)))
                 pacman.moveDown();
             }
         }
