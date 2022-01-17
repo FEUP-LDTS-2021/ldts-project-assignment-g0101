@@ -3,19 +3,65 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+
 public class PacmanTest {
     //TODO: Implement tests for the functionalities described in the text files
 
     Pacman pac;
+    Maze maze;
 
-    @BeforeEach
-    public void createPac(){
-        pac = new Pacman(10,10);
-    }
 
     @Test
     public void exists(){
-
+        pac = new Pacman(1,1);
         Assertions.assertNotNull(pac);
+    }
+
+
+    public void setupMazePacMovement(){
+        MapReader mapReader = new MapReader(new File("pacmovement.txt"));
+        maze = new Maze(mapReader.readMap());
+        pac = new Pacman(2,2);
+    }
+
+    @Test
+    public void moveLeft(){
+        setupMazePacMovement();
+        Position start = pac.getPosition();
+        pac.moveLeft();
+        Position end = pac.getPosition();
+        Assertions.assertEquals(start.getX()-1,end.getX());
+        Assertions.assertEquals(start.getY(),end.getY());
+    }
+
+    @Test
+    public void moveRight(){
+        setupMazePacMovement();
+        Position start = pac.getPosition();
+        pac.moveRight();
+        Position end = pac.getPosition();
+        Assertions.assertEquals(start.getX()+1,end.getX());
+        Assertions.assertEquals(start.getY(),end.getY());
+    }
+
+    @Test
+    public void moveUp(){
+        setupMazePacMovement();
+        Position start = pac.getPosition();
+        pac.moveUp();
+        Position end = pac.getPosition();
+        Assertions.assertEquals(start.getX(),end.getX());
+        Assertions.assertEquals(start.getY()-1,end.getY());
+    }
+
+    @Test
+    public void moveDown(){
+        setupMazePacMovement();
+        Position start = pac.getPosition();
+        pac.moveDown();
+        Position end = pac.getPosition();
+        Assertions.assertEquals(start.getX(),end.getX());
+        Assertions.assertEquals(start.getY()+1,end.getY());
     }
 }
