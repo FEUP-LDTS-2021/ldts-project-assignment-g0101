@@ -23,46 +23,25 @@ public class Maze implements Collision{
         this.height= gameMap.length;
         this.width = gameMap[0].length;
 
-        this.pacman = new Pacman(13,16);  //TODO: fix pacman starting coordinates
-        this.walls = createMaze(gameMap);
-        this.points = createPointsList(gameMap);
-        this.ghosts = createGhostsList();
+        createMaze(gameMap);
+
     }
 
-    private List<Wall> createMaze(char[][] gameMap) {//TODO: createMaze and createPointsList could maybe become one?
-        List<Wall> mwalls = new ArrayList<>();
+    private void createMaze(char[][] gameMap) {
+        walls = new ArrayList<>();
+        points = new ArrayList<>();
+        ghosts = new ArrayList<>();
 
         for (int i = 0 ; i < height; i++){
             for (int j = 0; j < width; j++){
-                if (gameMap[i][j] == '#') mwalls.add(new Wall(j,i));//System.out.println("wall found at :" + i + " " + j);
+                if (gameMap[i][j] == '#') this.walls.add(new Wall(j,i));//System.out.println("wall found at :" + i + " " + j);
+                else if (gameMap[i][j] == '.') this.points.add(new Point(j,i));
+                else if (gameMap[i][j] == 'P') this.pacman = new Pacman(j,i);
+                else if (gameMap[i][j] == 'F') this.ghosts.add(new Ghost(j,i));
             }
         }
-
-        return mwalls;
     }
 
-    private List<Point> createPointsList(char[][] gameMap) {
-        List<Point> mpoints = new ArrayList<>();
-
-
-        for (int i = 0 ; i < height; i++){
-            for (int j = 0; j < width; j++){
-                if (gameMap[i][j] == '.') mpoints.add(new Point(j,i));
-            }
-        }
-        return mpoints;
-    }
-
-    private List<Ghost> createGhostsList() {
-        List<Ghost> mghosts = new ArrayList<>();
-
-        mghosts.add(new Ghost(12,13));
-        mghosts.add(new Ghost(13,13));
-        mghosts.add(new Ghost(14,13));
-        mghosts.add(new Ghost(15,13));
-
-        return mghosts;
-    }
 
     @Override
     public boolean characterCanMoveTo( Position position) {
