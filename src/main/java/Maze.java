@@ -52,8 +52,13 @@ public class Maze implements Collision{
     }
 
     @Override
-    public void characterInteractsWithElement(GameCharacter gameCharacter, Position position) {
+    public boolean characterInteractsWithPoint(GameCharacter gameCharacter, Position position) {
+        return true;
+    }
 
+    @Override
+    public boolean characterInteractsWithEnemy(GameCharacter gameCharacter,Position position){
+        return true;
     }
 
     public void processKey(KeyStroke key) {
@@ -75,6 +80,7 @@ public class Maze implements Collision{
                 pacman.moveDown();
             }
         }
+
     }
 
     public void draw(TextGraphics newTextGraphics) {
