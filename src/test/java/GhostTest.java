@@ -10,21 +10,21 @@ public class GhostTest {
     Ghost ghost;
     Maze maze;
 
-    @BeforeEach
-    public void createGhost(){
-        MapReader mapReader = new MapReader(new File("ghostmovement.txt"));
-        maze = new Maze(mapReader.readMap());
-        ghost = new Ghost(2,2);
-    }
+   public void setupGhostMazeMovement(){
+       MapReader mapReader = new MapReader(new File("ghostmovement.txt"));
+       maze = new Maze(mapReader.readMap());
+       ghost = new Ghost(2,2);
+   }
 
     @Test
     public void exists(){
-
+        ghost = new Ghost(1,1);
         Assertions.assertNotNull(ghost);
     }
 
     @Test
     public void moveLeft(){
+       setupGhostMazeMovement();
         Position start = ghost.getPosition();
         ghost.moveLeft();
         Position end = ghost.getPosition();
@@ -34,6 +34,7 @@ public class GhostTest {
 
     @Test
     public void moveRight(){
+        setupGhostMazeMovement();
         Position start = ghost.getPosition();
         ghost.moveRight();
         Position end = ghost.getPosition();
@@ -43,6 +44,7 @@ public class GhostTest {
 
     @Test
     public void moveUp(){
+        setupGhostMazeMovement();
         Position start = ghost.getPosition();
         ghost.moveUp();
         Position end = ghost.getPosition();
@@ -52,6 +54,7 @@ public class GhostTest {
 
     @Test
     public void moveDown(){
+        setupGhostMazeMovement();
         Position start = ghost.getPosition();
         ghost.moveDown();
         Position end = ghost.getPosition();
