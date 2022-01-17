@@ -7,9 +7,10 @@ import com.googlecode.lanterna.input.KeyStroke;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Maze {
+public class Maze implements Collision{
     private int width;
     private int height;
+    private int score;
 
     private Pacman pacman;
     private List<Wall> walls;
@@ -22,63 +23,76 @@ public class Maze {
         //30 altura 28 largura pacman começa em 14,23
         this.height= gameMap.length;
         this.width = gameMap[0].length;
+        this.score = 0;
+        createMaze(gameMap);
 
-        this.pacman = new Pacman(13,16);  //TODO: fix pacman starting coordinates
-        this.walls = createMaze(gameMap);
-        this.points = createPointsList(gameMap);
-        this.ghosts = createGhostsList();
     }
 
-    private List<Wall> createMaze(char[][] gameMap) {//TODO: createMaze and createPointsList could maybe become one?
-        List<Wall> mwalls = new ArrayList<>();
+    private void createMaze(char[][] gameMap) {
+        walls = new ArrayList<>();
+        points = new ArrayList<>();
+        ghosts = new ArrayList<>();
 
         for (int i = 0 ; i < height; i++){
             for (int j = 0; j < width; j++){
-                if (gameMap[i][j] == '#') mwalls.add(new Wall(j,i));//System.out.println("wall found at :" + i + " " + j);
+                if (gameMap[i][j] == '#') this.walls.add(new Wall(j,i));//System.out.println("wall found at :" + i + " " + j);
+                else if (gameMap[i][j] == '.') this.points.add(new Point(j,i));
+                else if (gameMap[i][j] == 'P') this.pacman = new Pacman(j,i);
+                else if (gameMap[i][j] == 'F') this.ghosts.add(new Ghost(j,i));
             }
         }
-
-        return mwalls;
     }
 
-    private List<Point> createPointsList(char[][] gameMap) {
-        List<Point> mpoints = new ArrayList<>();
 
+    @Override
+    public boolean characterCanMoveTo( Position position) {
+        for(Wall wall : this.walls){
+            if (wall.position.equals(position)) return false;
+        }
+        return true;
+    }
 
-        for (int i = 0 ; i < height; i++){
-            for (int j = 0; j < width; j++){
-                if (gameMap[i][j] == '.') mpoints.add(new Point(j,i));
+    @Override
+    public boolean characterInteractsWithPoint(GameCharacter gameCharacter, Position position) {
+        if (gameCharacter.getClass() == Pacman.class){
+            for( Point point : this.points){
+                if (point.position.equals(position) ){
+                    points.remove(point);
+                    score+=100;
+                    return true;
+                }
             }
         }
-        return mpoints;
+        return false;
     }
 
-    private List<Ghost> createGhostsList() {
-        List<Ghost> mghosts = new ArrayList<>();
+    @Override
+    public boolean characterInteractsWithEnemy(GameCharacter gameCharacter,Position position){
 
-        mghosts.add(new Ghost(12,13));
-        mghosts.add(new Ghost(13,13));
-        mghosts.add(new Ghost(14,13));
-        mghosts.add(new Ghost(15,13));
-
-        return mghosts;
+        return true;
     }
 
     public void processKey(KeyStroke key) {
         switch (key.getKeyType()) {
             case ArrowLeft -> {
+                if (characterCanMoveTo(new Position(pacman.position.getX() - 1,pacman.position.getY())))
                 pacman.moveLeft();
             }
             case ArrowRight -> {
+                if (characterCanMoveTo(new Position(pacman.position.getX() +1,pacman.position.getY())))
                 pacman.moveRight();
             }
             case ArrowUp -> {
+                if (characterCanMoveTo(new Position(pacman.position.getX() ,pacman.position.getY() - 1)))
                 pacman.moveUp();
             }
             case ArrowDown -> {
+                if (characterCanMoveTo(new Position(pacman.position.getX() ,pacman.position.getY() +1)))
                 pacman.moveDown();
             }
         }
+        characterInteractsWithPoint(pacman,pacman.position);
+
     }
 
     public void draw(TextGraphics newTextGraphics) {
@@ -88,16 +102,17 @@ public class Maze {
         this.graphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height), ' ');
 
 
-
         for (Wall wall : this.walls)
             wall.draw(graphics);
 
         for (Point point : this.points)
             point.draw(graphics);
-        this.pacman.draw(graphics);
 
         for (Ghost ghost : this.ghosts)
             ghost.draw(graphics);
 
+        this.pacman.draw(graphics);
     }
+
+
 }
