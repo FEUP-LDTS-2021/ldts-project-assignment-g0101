@@ -10,6 +10,7 @@ import java.util.List;
 public class Maze implements Collision{
     private int width;
     private int height;
+    private int score;
 
     private Pacman pacman;
     private List<Wall> walls;
@@ -22,7 +23,7 @@ public class Maze implements Collision{
         //30 altura 28 largura pacman começa em 14,23
         this.height= gameMap.length;
         this.width = gameMap[0].length;
-
+        this.score = 0;
         createMaze(gameMap);
 
     }
@@ -52,8 +53,23 @@ public class Maze implements Collision{
     }
 
     @Override
-    public void characterInteractsWithElement(GameCharacter gameCharacter, Position position) {
+    public boolean characterInteractsWithPoint(GameCharacter gameCharacter, Position position) {
+        if (gameCharacter.getClass() == Pacman.class){
+            for( Point point : this.points){
+                if (point.position.equals(position) ){
+                    points.remove(point);
+                    score+=100;
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
+    @Override
+    public boolean characterInteractsWithEnemy(GameCharacter gameCharacter,Position position){
+
+        return true;
     }
 
     public void processKey(KeyStroke key) {
@@ -75,6 +91,8 @@ public class Maze implements Collision{
                 pacman.moveDown();
             }
         }
+        characterInteractsWithPoint(pacman,pacman.position);
+
     }
 
     public void draw(TextGraphics newTextGraphics) {

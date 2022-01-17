@@ -6,6 +6,7 @@ public class MazeTest {
 
     Maze maze;
     GameCharacter gameCharacter;
+    GameCharacter enemy;
 
     @BeforeEach
     public void createMaze(){
@@ -15,12 +16,20 @@ public class MazeTest {
         map[1][0] = '.';
         map[1][1] = '#';
         maze = new Maze(map);
-        gameCharacter = new Pacman(1,0);
+        gameCharacter = new Pacman(0,0);
+        enemy = new Ghost(1,0);
     }
 
     @Test
     public void tesCollision(){
-        Assertions.assertTrue(maze.characterCanMoveTo(new Position(0,0)));
+        Assertions.assertTrue(maze.characterCanMoveTo(new Position(0,1)));
         Assertions.assertFalse(maze.characterCanMoveTo(new Position(1,1)));
     }
+
+    @Test
+    public void testPointInteraction(){
+        Assertions.assertTrue(maze.characterInteractsWithPoint(gameCharacter,new Position(0,1)));
+        Assertions.assertFalse(maze.characterInteractsWithPoint(enemy,new Position(0,1)));
+    }
+
 }
