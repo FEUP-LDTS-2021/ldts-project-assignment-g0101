@@ -14,10 +14,10 @@ Pacman.java
  Pacman
 Ghost.java
  Ghost
-Collision.java
- Collision
 Element.java
  Element
+Collision.java
+ Collision
 Maze.java
  Maze
  Maze$1

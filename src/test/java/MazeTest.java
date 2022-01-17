@@ -12,8 +12,8 @@ public class MazeTest {
     public void createMaze(){
         char[][] map = new char[2][2];
         map[0][0] = 'b';
-        map[0][1] = '.';
-        map[1][0] = 'b';
+        map[0][1] = 'b';
+        map[1][0] = '.';
         map[1][1] = '#';
         maze = new Maze(map);
         gameCharacter = new Pacman(0,0);
