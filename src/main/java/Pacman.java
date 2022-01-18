@@ -9,8 +9,6 @@ public class Pacman extends GameCharacter {
         super(x, y);
     }
 
-    //TODO: Implement Movement
-
     public void draw(TextGraphics graphics) {
         graphics.setForegroundColor(TextColor.Factory.fromString("#FFFF33"));
         graphics.enableModifiers(SGR.BOLD);

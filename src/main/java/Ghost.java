@@ -4,6 +4,9 @@ import com.googlecode.lanterna.TextCharacter;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
+import java.io.PipedOutputStream;
+import java.util.Random;
+
 public class Ghost extends GameCharacter {
 
     public Ghost(int x, int y) {
@@ -18,5 +21,29 @@ public class Ghost extends GameCharacter {
         graphics.enableModifiers(SGR.BOLD);
         graphics.putString(new TerminalPosition(position.getX(), position.getY()), "X");
         graphics.setCharacter(position.getX(), position.getY(), TextCharacter.fromCharacter('F')[0]);
+    }
+
+    public Position randomMove() {
+        Position start = this.getPosition();
+        Position end = this.getPosition();
+        Random rand = new Random();
+        while(start.equals(end)){
+            int n = rand.nextInt(4);
+            switch (n){
+                case 0:
+                    end = new Position(end.getX()+1, end.getY());
+                    break;
+                case 1:
+                    end = new Position(end.getX()-1, end.getY());
+                    break;
+                case 2:
+                    end = new Position(end.getX(), end.getY()+1);
+                    break;
+                case 3:
+                    end = new Position(end.getX(), end.getY()-1);
+                    break;
+            }
+        }
+        return end;
     }
 }
