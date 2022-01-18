@@ -76,8 +76,7 @@ public class GhostTest {
     public void randomMovement(){
        setupGhostMazeMovement();
        Position start = ghost.getPosition();
-       ghost.randomMove();
-       Position end = ghost.getPosition();
+       Position end = ghost.randomMove();
        Assertions.assertNotEquals(start, end);
     }
 }
