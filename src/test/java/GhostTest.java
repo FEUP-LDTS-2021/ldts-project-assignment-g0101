@@ -72,11 +72,4 @@ public class GhostTest {
        Assertions.assertTrue(maze.characterCanMoveTo(new Position(start.getX()+1, start.getY()-1)));
     }
 
-    @Test
-    public void randomMovement(){
-       setupGhostMazeMovement();
-       Position start = ghost.getPosition();
-       Position end = ghost.randomMove();
-       Assertions.assertNotEquals(start, end);
-    }
 }

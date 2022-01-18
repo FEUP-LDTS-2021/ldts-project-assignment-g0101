@@ -6,6 +6,7 @@ import com.googlecode.lanterna.input.KeyStroke;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Maze implements Collision{
     private int width;
@@ -46,6 +47,7 @@ public class Maze implements Collision{
 
     @Override
     public boolean characterCanMoveTo( Position position) {
+
         for(Wall wall : this.walls){
             if (wall.position.equals(position)) return false;
         }
@@ -63,6 +65,7 @@ public class Maze implements Collision{
                 }
             }
         }
+
         return false;
     }
 
@@ -93,6 +96,23 @@ public class Maze implements Collision{
         }
         characterInteractsWithPoint(pacman,pacman.position);
 
+    }
+
+    public void moveGhosts(){
+        for(Ghost g: this.ghosts){
+            Position pos = g.randomMove();
+            while(!characterCanMoveTo(pos) || ghostThere(pos)){
+                pos = g.randomMove();
+            }
+            g.setPosition(pos);
+        }
+    }
+
+    private boolean ghostThere(Position pos) {
+        for(Ghost g: ghosts){
+            if(pos.equals(g.getPosition())) return true;
+        }
+        return false;
     }
 
     public void draw(TextGraphics newTextGraphics) {

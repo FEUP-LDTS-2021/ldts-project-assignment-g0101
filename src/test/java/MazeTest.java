@@ -2,13 +2,14 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+
 public class MazeTest {
 
     Maze maze;
     GameCharacter gameCharacter;
     GameCharacter enemy;
 
-    @BeforeEach
     public void createMaze(){
         char[][] map = new char[2][2];
         map[0][0] = 'b';
@@ -22,14 +23,18 @@ public class MazeTest {
 
     @Test
     public void testCollision(){
+        createMaze();
         Assertions.assertTrue(maze.characterCanMoveTo(new Position(0,1)));
         Assertions.assertFalse(maze.characterCanMoveTo(new Position(1,1)));
     }
 
     @Test
     public void testPointInteraction(){
+        createMaze();
         Assertions.assertTrue(maze.characterInteractsWithPoint(gameCharacter,new Position(0,1)));
         Assertions.assertFalse(maze.characterInteractsWithPoint(enemy,new Position(0,1)));
     }
+
+
 
 }

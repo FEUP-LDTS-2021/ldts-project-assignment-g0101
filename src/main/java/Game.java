@@ -46,7 +46,7 @@ public class Game {
                 else if (key.getKeyType() == KeyType.EOF){
                     break;
                 }
-
+                this.moveGhosts();
                 this.processKey(key);
 
             } catch (IOException e) {
@@ -54,7 +54,9 @@ public class Game {
             }
         }
     }
-
+    private void moveGhosts(){
+        maze.moveGhosts();
+    }
     private void processKey(KeyStroke key) {
         maze.processKey(key);
     }
