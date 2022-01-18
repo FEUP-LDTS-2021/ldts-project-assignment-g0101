@@ -21,7 +21,7 @@ public class MazeTest {
     }
 
     @Test
-    public void tesCollision(){
+    public void testCollision(){
         Assertions.assertTrue(maze.characterCanMoveTo(new Position(0,1)));
         Assertions.assertFalse(maze.characterCanMoveTo(new Position(1,1)));
     }
