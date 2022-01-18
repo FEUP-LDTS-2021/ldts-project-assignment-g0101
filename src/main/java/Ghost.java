@@ -19,4 +19,8 @@ public class Ghost extends GameCharacter {
         graphics.putString(new TerminalPosition(position.getX(), position.getY()), "X");
         graphics.setCharacter(position.getX(), position.getY(), TextCharacter.fromCharacter('F')[0]);
     }
+
+    public void randomMove() {
+
+    }
 }
