@@ -1,5 +1,6 @@
-Wall.java
- Wall
+Maze.java
+ Maze
+ Maze$1
 Position.java
  Position
 Point.java
@@ -12,14 +13,13 @@ MapReader.java
  MapReader
 Application.java
  Application
-GameCharacter.java
- GameCharacter
+Game.java
+ Game
 Collision.java
  Collision
 Element.java
  Element
-Maze.java
- Maze
- Maze$1
-Game.java
- Game
+GameCharacter.java
+ GameCharacter
+Wall.java
+ Wall

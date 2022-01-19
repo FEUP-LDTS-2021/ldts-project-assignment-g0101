@@ -101,18 +101,7 @@ public class Maze implements Collision{
     }
 
     public boolean checkEndMaze(String dest) {
-        Position pos = pacman.getPosition();
-        switch (dest){
-            case "Up":
-
-                    break;
-            case "Down":
-                break;
-            case "Left":
-                break;
-            case "Right":
-                break;
-        }
+        return false;
     }
 
     public void moveGhosts(){
