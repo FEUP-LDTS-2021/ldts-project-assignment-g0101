@@ -13,7 +13,7 @@ public class Maze implements Collision{
     private int height;
     private int score;
 
-    private Pacman pacman;
+    public Pacman pacman;
     private List<Wall> walls;
     private List<Point> points;
     private List<Ghost> ghosts;
@@ -79,20 +79,31 @@ public class Maze implements Collision{
         switch (key.getKeyType()) {
             case ArrowLeft -> {
                 if (characterCanMoveTo(new Position(pacman.position.getX() - 1,pacman.position.getY())))
-                pacman.moveLeft();
+                    if (checkEndMaze("Left")){
+
+                    }
+                    else pacman.moveLeft();
             }
             case ArrowRight -> {
                 if (characterCanMoveTo(new Position(pacman.position.getX() +1,pacman.position.getY())))
-                pacman.moveRight();
+                    if (checkEndMaze("Right")){
+
+                    }
+                    else pacman.moveRight();
             }
             case ArrowUp -> {
                 if (characterCanMoveTo(new Position(pacman.position.getX() ,pacman.position.getY() - 1)))
-                pacman.moveUp();
+                    if (checkEndMaze("Up")){
+
+                    }
+                    else pacman.moveUp();
             }
             case ArrowDown -> {
                 if (characterCanMoveTo(new Position(pacman.position.getX() ,pacman.position.getY() +1))){
-                    checkEndMaze("Down");
-                    pacman.moveDown();
+                    if (checkEndMaze("Down")){
+
+                    } else pacman.moveDown();
+
                 }
             }
         }
@@ -101,7 +112,26 @@ public class Maze implements Collision{
     }
 
     public boolean checkEndMaze(String dest) {
+        Position pos = pacman.getPosition();
+        switch (dest){
+            case "Up":
+                if(pos.getY()-1 < 0) return true;
+                break;
+            case "Down":
+                if(pos.getY()+1 >= height) return true;
+                break;
+            case "Left":
+                if(pos.getX()-1 < 0) return true;
+                break;
+            case "Right":
+                if(pos.getX()+1 >= width) return true;
+                break;
+        }
         return false;
+    }
+
+    public void setPosOpposite(){
+
     }
 
     public void moveGhosts(){

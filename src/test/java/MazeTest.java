@@ -38,12 +38,24 @@ public class MazeTest {
     @Test
     public void checkEndOfMaze(){
         char[][] map = new char[1][1];
+        map[0][0] = 'P';
         maze = new Maze(map);
-        gameCharacter = new Pacman(1,0);
         Assertions.assertTrue(maze.checkEndMaze("Up"));
         Assertions.assertTrue(maze.checkEndMaze("Down"));
         Assertions.assertTrue(maze.checkEndMaze("Left"));
         Assertions.assertTrue(maze.checkEndMaze("Right"));
+    }
+
+    @Test
+    public void setPosOpposite(){
+        char[][] map = new char[2][1];
+        map[0][0] = 'P';
+        map[1][0] = 'b';
+        maze = new Maze(map);
+        maze.setPosOpposite();
+        Position expected = new Position(1,0);
+        Position result = maze.pacman.getPosition();
+        Assertions.assertEquals(expected,result);
     }
 
 
