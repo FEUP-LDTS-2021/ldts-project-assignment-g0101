@@ -6,7 +6,6 @@ import com.googlecode.lanterna.input.KeyStroke;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Maze implements Collision{
     private int width;
@@ -80,28 +79,28 @@ public class Maze implements Collision{
             case ArrowLeft -> {
                 if (characterCanMoveTo(new Position(pacman.position.getX() - 1,pacman.position.getY())))
                     if (checkEndMaze("Left")){
-
+                        setPosOpposite("Left");
                     }
                     else pacman.moveLeft();
             }
             case ArrowRight -> {
                 if (characterCanMoveTo(new Position(pacman.position.getX() +1,pacman.position.getY())))
                     if (checkEndMaze("Right")){
-
+                        setPosOpposite("Right");
                     }
                     else pacman.moveRight();
             }
             case ArrowUp -> {
                 if (characterCanMoveTo(new Position(pacman.position.getX() ,pacman.position.getY() - 1)))
                     if (checkEndMaze("Up")){
-
+                        setPosOpposite("Up");
                     }
                     else pacman.moveUp();
             }
             case ArrowDown -> {
                 if (characterCanMoveTo(new Position(pacman.position.getX() ,pacman.position.getY() +1))){
                     if (checkEndMaze("Down")){
-
+                        setPosOpposite("Down");
                     } else pacman.moveDown();
 
                 }
@@ -134,7 +133,7 @@ public class Maze implements Collision{
         Position start = pacman.getPosition();
         switch (move){
             case "Up":
-                pacman.setPosition(new Position(start.getX(),height));
+                pacman.setPosition(new Position(start.getX(),height-1));
                 break;
             case "Down":
                 pacman.setPosition(new Position(start.getX(),0));
@@ -143,7 +142,7 @@ public class Maze implements Collision{
                 pacman.setPosition(new Position(0, start.getY()));
                 break;
             case "Left":
-                pacman.setPosition(new Position(start.getX(), start.getY()));
+                pacman.setPosition(new Position(width-1, start.getY()));
                 break;
         }
     }

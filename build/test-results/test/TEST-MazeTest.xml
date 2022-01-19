@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="MazeTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-01-19T18:23:26" hostname="aires-vm" time="0.009">
+<testsuite name="MazeTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2022-01-19T18:40:27" hostname="aires-vm" time="0.018">
   <properties/>
-  <testcase name="setPosOpposite()" classname="MazeTest" time="0.009"/>
+  <testcase name="testCollision()" classname="MazeTest" time="0.011"/>
+  <testcase name="checkEndOfMaze()" classname="MazeTest" time="0.001"/>
+  <testcase name="testPointInteraction()" classname="MazeTest" time="0.0"/>
+  <testcase name="setPosOppositeUp()" classname="MazeTest" time="0.001"/>
+  <testcase name="setPosOppositeRight()" classname="MazeTest" time="0.001"/>
+  <testcase name="setPosOppositeDown()" classname="MazeTest" time="0.001"/>
+  <testcase name="setPosOppositeLeft()" classname="MazeTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

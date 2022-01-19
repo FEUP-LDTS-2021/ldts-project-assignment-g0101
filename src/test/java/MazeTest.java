@@ -47,10 +47,10 @@ public class MazeTest {
     }
 
     @Test
-    public void setPosOpposite(){
-        char[][] map = new char[1][2];
+    public void setPosOppositeUp(){
+        char[][] map = new char[2][1];
         map[0][0] = 'P';
-        map[0][1] = 'b';
+        map[1][0] = 'b';
         maze = new Maze(map);
         maze.setPosOpposite("Up");
         Position expected = new Position(0,1);
@@ -58,6 +58,48 @@ public class MazeTest {
         Assertions.assertEquals(expected.getX(),result.getX());
         Assertions.assertEquals(expected.getY(),result.getY());
     }
+
+    @Test
+    public void setPosOppositeDown(){
+        char[][] map = new char[2][1];
+        map[0][0] = 'b';
+        map[1][0] = 'P';
+        maze = new Maze(map);
+        maze.setPosOpposite("Down");
+        Position expected = new Position(0,0);
+        Position result = maze.pacman.getPosition();
+        Assertions.assertEquals(expected.getX(),result.getX());
+        Assertions.assertEquals(expected.getY(),result.getY());
+    }
+
+
+    @Test
+    public void setPosOppositeRight(){
+        char[][] map = new char[1][2];
+        map[0][0] = 'b';
+        map[0][1] = 'P';
+        maze = new Maze(map);
+        maze.setPosOpposite("Right");
+        Position expected = new Position(0,0);
+        Position result = maze.pacman.getPosition();
+        Assertions.assertEquals(expected.getX(),result.getX());
+        Assertions.assertEquals(expected.getY(),result.getY());
+    }
+
+    @Test
+    public void setPosOppositeLeft(){
+        char[][] map = new char[1][2];
+        map[0][0] = 'P';
+        map[0][1] = 'b';
+        maze = new Maze(map);
+        maze.setPosOpposite("Left");
+        Position expected = new Position(1,0);
+        Position result = maze.pacman.getPosition();
+        Assertions.assertEquals(expected.getX(),result.getX());
+        Assertions.assertEquals(expected.getY(),result.getY());
+    }
+
+
 
 
 
