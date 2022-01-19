@@ -48,14 +48,15 @@ public class MazeTest {
 
     @Test
     public void setPosOpposite(){
-        char[][] map = new char[2][1];
+        char[][] map = new char[1][2];
         map[0][0] = 'P';
-        map[1][0] = 'b';
+        map[0][1] = 'b';
         maze = new Maze(map);
-        maze.setPosOpposite();
-        Position expected = new Position(1,0);
+        maze.setPosOpposite("Up");
+        Position expected = new Position(0,1);
         Position result = maze.pacman.getPosition();
-        Assertions.assertEquals(expected,result);
+        Assertions.assertEquals(expected.getX(),result.getX());
+        Assertions.assertEquals(expected.getY(),result.getY());
     }
 
 

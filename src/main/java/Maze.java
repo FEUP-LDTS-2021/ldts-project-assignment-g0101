@@ -130,8 +130,22 @@ public class Maze implements Collision{
         return false;
     }
 
-    public void setPosOpposite(){
-
+    public void setPosOpposite(String move){
+        Position start = pacman.getPosition();
+        switch (move){
+            case "Up":
+                pacman.setPosition(new Position(start.getX(),height));
+                break;
+            case "Down":
+                pacman.setPosition(new Position(start.getX(),0));
+                break;
+            case "Right":
+                pacman.setPosition(new Position(0, start.getY()));
+                break;
+            case "Left":
+                pacman.setPosition(new Position(start.getX(), start.getY()));
+                break;
+        }
     }
 
     public void moveGhosts(){
