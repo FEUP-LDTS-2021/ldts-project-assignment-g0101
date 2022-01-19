@@ -90,12 +90,29 @@ public class Maze implements Collision{
                 pacman.moveUp();
             }
             case ArrowDown -> {
-                if (characterCanMoveTo(new Position(pacman.position.getX() ,pacman.position.getY() +1)))
-                pacman.moveDown();
+                if (characterCanMoveTo(new Position(pacman.position.getX() ,pacman.position.getY() +1))){
+                    checkEndMaze("Down");
+                    pacman.moveDown();
+                }
             }
         }
         characterInteractsWithPoint(pacman,pacman.position);
 
+    }
+
+    public boolean checkEndMaze(String dest) {
+        Position pos = pacman.getPosition();
+        switch (dest){
+            case "Up":
+
+                    break;
+            case "Down":
+                break;
+            case "Left":
+                break;
+            case "Right":
+                break;
+        }
     }
 
     public void moveGhosts(){

@@ -29,19 +29,11 @@ public class Ghost extends GameCharacter {
         Random rand = new Random();
         while(start.equals(end)){
             int n = rand.nextInt(4);
-            switch (n){
-                case 0:
-                    end = new Position(end.getX()+1, end.getY());
-                    break;
-                case 1:
-                    end = new Position(end.getX()-1, end.getY());
-                    break;
-                case 2:
-                    end = new Position(end.getX(), end.getY()+1);
-                    break;
-                case 3:
-                    end = new Position(end.getX(), end.getY()-1);
-                    break;
+            switch (n) {
+                case 0 -> end = new Position(end.getX() + 1, end.getY());
+                case 1 -> end = new Position(end.getX() - 1, end.getY());
+                case 2 -> end = new Position(end.getX(), end.getY() + 1);
+                case 3 -> end = new Position(end.getX(), end.getY() - 1);
             }
         }
         return end;

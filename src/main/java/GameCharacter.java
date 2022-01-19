@@ -19,4 +19,5 @@ public abstract class GameCharacter extends Element {
     public void moveUp() {
         this.setPosition(new Position(position.getX(), position.getY() - 1));
     }
+
 }

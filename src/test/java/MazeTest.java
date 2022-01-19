@@ -35,6 +35,18 @@ public class MazeTest {
         Assertions.assertFalse(maze.characterInteractsWithPoint(enemy,new Position(0,1)));
     }
 
+    @Test
+    public void checkEndOfMaze(){
+        char[][] map = new char[1][1];
+        maze = new Maze(map);
+        gameCharacter = new Pacman(1,0);
+        Assertions.assertTrue(maze.checkEndMaze("Up"));
+        Assertions.assertTrue(maze.checkEndMaze("Down"));
+        Assertions.assertTrue(maze.checkEndMaze("Left"));
+        Assertions.assertTrue(maze.checkEndMaze("Right"));
+    }
+
+
 
 
 }
