@@ -2,20 +2,20 @@
 
 > Include here one or two paragraphs explaining the main idea of the project, followed by a sentence identifying who the authors are.
 
-**Example**:
-
 In this classic arcade game you help the Pac-Man escape a maze, by collecting all the points layed inside it, while also avoiding all the *spooky* ghosts that are haunting him.
 
-This project was developed by *Iraklis Konsoulas* (*up202102051*@fe.up.pt), *Aires Doe* (*jane.doe*@fe.up.pt) and *Diogo Doe* (*jane.doe*@fe.up.pt) for LDTS 2021⁄22.
+This project was developed by *Iraklis Konsoulas* (*up202102051*@fe.up.pt), *João Aires Gonçalves* (*up201905175*@up.pt) and *Diogo Filipe Faia Nunes* (*up202007895*@edu.fc.up.pt) for LDTS 2021⁄22.
 
 ### IMPLEMENTED FEATURES
 
 > This section should contain a list of implemented features and their descriptions. In the end of the section, include two or three screenshots that illustrate the most important features.
 
-**Examples**:
-
-- **Jumping** - The game character will jump when the space bar key is pressed.
-- **Getting hidden coins** - When the game character hits a platform from below (by jumping beneath it) it will smash that segment of the platform and will get any coins that may exist hidden there.
+- **Ghosts** - There are Ghosts characters inside the game haunting the maze trying to eat the Pac-Man.
+![Image of the Ghosts]()
+- **Points** - When the game character collects all the points layed inside the maze the game finishes.
+![Image of the Maze with Points]()
+- **Side Exits** - When the game character passes through the side exits of the map it immediately appears on the other side of the screeen.
+![GIF of the Pac-Man passing through the exits]()
 
 ### PLANNED FEATURES
 
@@ -82,8 +82,10 @@ A way to improve the code would be to move the `isPlatformSegmentSolid()` method
 
 ### TESTING
 
-- Screenshot of coverage report.
-- Link to mutation testing report.
+- Coverage Testing Results
+![Screenshot of coverage report](./TestCoverage.png)
+- Mutation Testing Report [here]() and Results :
+![Screenshot of mutation report]()
 
 ### SELF-EVALUATION
 
@@ -91,5 +93,6 @@ A way to improve the code would be to move the `isPlatformSegmentSolid()` method
 
 **Example**:
 
-- John Doe: 40%
-- Jane Doe: 60%
+- Iraklis Konsoulas : 25%
+- João Aires Gonçalves : 32.5%
+- Diogo Filipe Faia Nunes : 32.5%
