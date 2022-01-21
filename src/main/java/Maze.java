@@ -73,59 +73,7 @@ public class Maze implements Collision{
     }
 
     @Override
-    public boolean characterInteractsWithEnemy(GameCharacter gameCharacter,Position position){
-
-        return true;
-    }
-
-    public void processKey(KeyStroke key) {
-        switch (key.getKeyType()) {
-            case ArrowLeft -> {
-                if(pacmanTouchGhost("Left")) pacmanDie();
-                if (characterCanMoveTo(new Position(pacman.position.getX() - 1,pacman.position.getY())))
-                    if (checkEndMaze("Left")){
-                        setPosOpposite("Left");
-                    }
-                    else pacman.moveLeft();
-            }
-            case ArrowRight -> {
-                if(pacmanTouchGhost("Right")) pacmanDie();
-                if (characterCanMoveTo(new Position(pacman.position.getX() +1,pacman.position.getY())))
-                    if (checkEndMaze("Right")){
-                        setPosOpposite("Right");
-                    }
-                    else pacman.moveRight();
-            }
-            case ArrowUp -> {
-                if (characterCanMoveTo(new Position(pacman.position.getX() ,pacman.position.getY() - 1))){
-                    if(pacmanTouchGhost("Up")) pacmanDie();
-                    if (checkEndMaze("Up")){
-                        setPosOpposite("Up");
-                    }
-                    else pacman.moveUp();
-                }
-
-            }
-            case ArrowDown -> {
-                if(pacmanTouchGhost("Down")) pacmanDie();
-                if (characterCanMoveTo(new Position(pacman.position.getX() ,pacman.position.getY() +1))){
-                    if (checkEndMaze("Down")){
-                        setPosOpposite("Down");
-                    } else pacman.moveDown();
-
-                }
-            }
-        }
-        characterInteractsWithPoint(pacman,pacman.position);
-
-    }
-
-    private void pacmanDie() {
-        endgame = true;
-    }
-
-
-    private boolean pacmanTouchGhost(String pos) {
+    public boolean characterInteractsWithEnemy(String pos){
         int x = 0, y = 0;
         switch(pos){
             case "Up":
@@ -150,6 +98,53 @@ public class Maze implements Collision{
         if(ghostThere(end)) return true;
         return false;
     }
+
+    public void processKey(KeyStroke key) {
+        switch (key.getKeyType()) {
+            case ArrowLeft -> {
+                if(characterInteractsWithEnemy("Left")) pacmanDie();
+                if (characterCanMoveTo(new Position(pacman.position.getX() - 1,pacman.position.getY())))
+                    if (checkEndMaze("Left")){
+                        setPosOpposite("Left");
+                    }
+                    else pacman.moveLeft();
+            }
+            case ArrowRight -> {
+                if(characterInteractsWithEnemy("Right")) pacmanDie();
+                if (characterCanMoveTo(new Position(pacman.position.getX() +1,pacman.position.getY())))
+                    if (checkEndMaze("Right")){
+                        setPosOpposite("Right");
+                    }
+                    else pacman.moveRight();
+            }
+            case ArrowUp -> {
+                if (characterCanMoveTo(new Position(pacman.position.getX() ,pacman.position.getY() - 1))){
+                    if(characterInteractsWithEnemy("Up")) pacmanDie();
+                    if (checkEndMaze("Up")){
+                        setPosOpposite("Up");
+                    }
+                    else pacman.moveUp();
+                }
+
+            }
+            case ArrowDown -> {
+                if(characterInteractsWithEnemy("Down")) pacmanDie();
+                if (characterCanMoveTo(new Position(pacman.position.getX() ,pacman.position.getY() +1))){
+                    if (checkEndMaze("Down")){
+                        setPosOpposite("Down");
+                    } else pacman.moveDown();
+
+                }
+            }
+        }
+        characterInteractsWithPoint(pacman,pacman.position);
+
+    }
+
+    private void pacmanDie() {
+        endgame = true;
+    }
+
 
 
 

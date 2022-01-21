@@ -14,12 +14,12 @@ Ghost.java
  Ghost
 GameCharacter.java
  GameCharacter
-Collision.java
- Collision
+Application.java
+ Application
 Maze.java
  Maze
  Maze$1
-Application.java
- Application
 Game.java
  Game
+Collision.java
+ Collision
