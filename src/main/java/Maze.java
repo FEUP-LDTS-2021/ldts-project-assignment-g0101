@@ -205,7 +205,7 @@ public class Maze implements Collision{
     public void draw(TextGraphics newTextGraphics) {
         this.graphics = newTextGraphics;
 
-        this.graphics.setBackgroundColor(TextColor.Factory.fromString("#000000")); //TODO: change this later?
+        this.graphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
         this.graphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height), ' ');
 
 

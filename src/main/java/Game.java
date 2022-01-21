@@ -31,7 +31,7 @@ public class Game {
             e.printStackTrace();
         }
         MapReader mapReader = new MapReader(new File("basemaze.txt"));//TODO: Un-hardcode this
-        this.maze = new Maze(mapReader.readMap());  //TODO: fix Maze's dimensions DONE??(unsure what you mean by this)
+        this.maze = new Maze(mapReader.readMap());
     }
 
     public void run(){  //TODO : make this run on a different thread

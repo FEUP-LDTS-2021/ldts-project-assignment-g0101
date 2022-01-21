@@ -6,8 +6,6 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 
 public class PacmanTest {
-    //TODO: Implement tests for the functionalities described in the text files
-
     Pacman pac;
     Maze maze;
 

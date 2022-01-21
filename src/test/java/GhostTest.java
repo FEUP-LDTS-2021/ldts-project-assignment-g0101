@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 
 public class GhostTest {
-    //TODO: Implement tests for the functionalities described in the text files
-
     Ghost ghost;
     Maze maze;
 
