@@ -13,8 +13,6 @@ public class Ghost extends GameCharacter {
         super(x, y);
     }
 
-    //TODO: Implement Movement
-
     @Override
     public void draw(TextGraphics graphics) {
         graphics.setForegroundColor(TextColor.Factory.fromString("#FFFF33"));
