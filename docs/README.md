@@ -9,13 +9,15 @@ This project was developed by *Iraklis Konsoulas* (*up202102051*@fe.up.pt), *JoÃ
 > This section should contain a list of implemented features and their descriptions. In the end of the section, include two or three screenshots that illustrate the most important features.
 
 - **Ghosts** - There are Ghosts characters inside the game haunting the maze trying to eat the Pac-Man.
-![Image of the Ghosts]()
+    
+    ![Image of the Ghosts](./ghosts.png)
 - **Points** - When the game character collects all the points layed inside the maze the game finishes.
-![Image of the Maze with Points]()
+
+    ![Image of the Maze with Points](./points.png)
 - **Pac-Man** - The user-controlled game character that collects all the points layed inside the maze trying to avoid the ghosts.
-![GIF of the Pac-Man moving inside the maze]()
+
+    ![Pac-Man passing through one of the exits](./sideExits.png)
 - **Side Exits** - When the game character passes through the side exits of the map it immediately appears on the other side of the screeen.
-![GIF of the Pac-Man passing through the exits]()
 
 ### PLANNED FEATURES
 
