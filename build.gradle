@@ -1,5 +1,8 @@
 plugins {
     id 'java'
+
+//    id 'info.solidsoft.pitest' version '1.6.0'
+//    id "org.kordamp.gradle.errorprone" version "0.47.0" // for code-smells
 }
 
 group 'org.example'
@@ -10,9 +13,16 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+
+    implementation group: 'com.googlecode.lanterna', name: 'lanterna', version: '3.1.1'
+
 }
+
+//pitest {
+//    junit5PluginVersion = '0.12'
+//}
 
 test {
     useJUnitPlatform()

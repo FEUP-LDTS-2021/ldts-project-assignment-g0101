@@ -37,4 +37,3 @@ Better AI for the Ghosts{
 }
 Leaderboard
 Sounds
-
