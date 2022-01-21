@@ -3,14 +3,18 @@ import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
+import com.googlecode.lanterna.input.KeyType;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.googlecode.lanterna.input.KeyStroke.*;
 
 public class Maze implements Collision{
     private int width;
     private int height;
     private int score;
+    private boolean endgame;
 
     public Pacman pacman;
     private List<Wall> walls;
@@ -25,6 +29,7 @@ public class Maze implements Collision{
         this.width = gameMap[0].length;
         this.score = 0;
         createMaze(gameMap);
+        endgame = false;
 
     }
 
@@ -46,7 +51,6 @@ public class Maze implements Collision{
 
     @Override
     public boolean characterCanMoveTo( Position position) {
-
         for(Wall wall : this.walls){
             if (wall.position.equals(position)) return false;
         }
@@ -77,6 +81,7 @@ public class Maze implements Collision{
     public void processKey(KeyStroke key) {
         switch (key.getKeyType()) {
             case ArrowLeft -> {
+                if(pacmanTouchGhost("Left")) pacmanDie();
                 if (characterCanMoveTo(new Position(pacman.position.getX() - 1,pacman.position.getY())))
                     if (checkEndMaze("Left")){
                         setPosOpposite("Left");
@@ -84,6 +89,7 @@ public class Maze implements Collision{
                     else pacman.moveLeft();
             }
             case ArrowRight -> {
+                if(pacmanTouchGhost("Right")) pacmanDie();
                 if (characterCanMoveTo(new Position(pacman.position.getX() +1,pacman.position.getY())))
                     if (checkEndMaze("Right")){
                         setPosOpposite("Right");
@@ -91,13 +97,17 @@ public class Maze implements Collision{
                     else pacman.moveRight();
             }
             case ArrowUp -> {
-                if (characterCanMoveTo(new Position(pacman.position.getX() ,pacman.position.getY() - 1)))
+                if (characterCanMoveTo(new Position(pacman.position.getX() ,pacman.position.getY() - 1))){
+                    if(pacmanTouchGhost("Up")) pacmanDie();
                     if (checkEndMaze("Up")){
                         setPosOpposite("Up");
                     }
                     else pacman.moveUp();
+                }
+
             }
             case ArrowDown -> {
+                if(pacmanTouchGhost("Down")) pacmanDie();
                 if (characterCanMoveTo(new Position(pacman.position.getX() ,pacman.position.getY() +1))){
                     if (checkEndMaze("Down")){
                         setPosOpposite("Down");
@@ -109,6 +119,39 @@ public class Maze implements Collision{
         characterInteractsWithPoint(pacman,pacman.position);
 
     }
+
+    private void pacmanDie() {
+        endgame = true;
+    }
+
+
+    private boolean pacmanTouchGhost(String pos) {
+        int x = 0, y = 0;
+        switch(pos){
+            case "Up":
+                x=0;
+                y=-1;
+                break;
+            case "Down":
+                x=0;
+                y=+1;
+                break;
+            case "Left":
+                x=-1;
+                y=0;
+                break;
+            case "Right":
+                x=+1;
+                y=0;
+                break;
+        }
+        Position pac = pacman.getPosition();
+        Position end = new Position(pac.getX()+x,pac.getY()+y);
+        if(ghostThere(end)) return true;
+        return false;
+    }
+
+
 
     public boolean checkEndMaze(String dest) {
         Position pos = pacman.getPosition();
@@ -184,4 +227,7 @@ public class Maze implements Collision{
     }
 
 
+    public boolean getState() {
+        return this.endgame;
+    }
 }

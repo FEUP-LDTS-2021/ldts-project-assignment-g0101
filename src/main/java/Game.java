@@ -40,7 +40,7 @@ public class Game {
                 this.draw();
                 KeyStroke key = screen.readInput();
 
-                if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'q'){
+                if ((key.getKeyType() == KeyType.Character && key.getCharacter() == 'q')){
                     this.screen.close();
                 }
                 else if (key.getKeyType() == KeyType.EOF){
@@ -48,6 +48,8 @@ public class Game {
                 }
                 this.moveGhosts();
                 this.processKey(key);
+                if(maze.getState()) this.screen.close();
+
 
             } catch (IOException e) {
                 e.printStackTrace();
