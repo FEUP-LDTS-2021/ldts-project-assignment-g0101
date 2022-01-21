@@ -1,7 +1,5 @@
 ## LDTS_2LEIC01_G0101 - Pac-Man
 
-> Include here one or two paragraphs explaining the main idea of the project, followed by a sentence identifying who the authors are.
-
 In this classic arcade game you help the Pac-Man escape a maze, by collecting all the points layed inside it, while also avoiding all the *spooky* ghosts that are haunting him.
 
 This project was developed by *Iraklis Konsoulas* (*up202102051*@fe.up.pt), *João Aires Gonçalves* (*up201905175*@up.pt) and *Diogo Filipe Faia Nunes* (*up202007895*@edu.fc.up.pt) for LDTS 2021⁄22.
@@ -14,12 +12,19 @@ This project was developed by *Iraklis Konsoulas* (*up202102051*@fe.up.pt), *Jo�
 ![Image of the Ghosts]()
 - **Points** - When the game character collects all the points layed inside the maze the game finishes.
 ![Image of the Maze with Points]()
+- **Pac-Man** - The user-controlled game character that collects all the points layed inside the maze trying to avoid the ghosts.
+![GIF of the Pac-Man moving inside the maze]()
 - **Side Exits** - When the game character passes through the side exits of the map it immediately appears on the other side of the screeen.
 ![GIF of the Pac-Man passing through the exits]()
 
 ### PLANNED FEATURES
 
-> This section is similar to the previous one but should list the features that are not yet implemented. Instead of screenshots you should include GUI mock-ups for the planned features.
+- **Graphics** - The graphics should be improved using either images or fonts made in FontForge.
+- **Power-Ups** - The game character should be able to consume power-ups layed in the maze in order to have the ability to consume ghosts.
+- **Lives** - In the classic arcade game the player has 3 lives to spend trying to finish the game.
+- **Score** - A scoreboard could be kept in order to track the progress in the players' results and increase the competition.
+- **More Mazes** - After completing one maze the game character teleports to a different maze trying to solve that one too.
+- **Music / Sound effects** - As the game commences, the classic music of Pac-Man should play in the background, while also the sound effects of Pac-Man consuming the points should be heard.
 
 ### DESIGN
 
@@ -66,19 +71,19 @@ The use of the State Pattern in the current design allows the following benefits
 - We don’t need to have a long set of conditional if or switch statements associated with the various states; instead, polimorphism is used to activate the right behavior.
 - There are now more classes and instances to manage, but still in a reasonable number.
 
-#### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
+### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
 
 > This section should describe 3 to 5 different code smells that you have identified in your current implementation, and suggest ways in which the code could be refactored to eliminate them. Each smell and refactoring suggestions should be described in its own subsection.
 
 **Example of such a subsection**:
-
-------
 
 #### DATA CLASS
 
 The `PlatformSegment` class is a **Data Class**, as it contains only fields, and no behavior. This is problematic because […].
 
 A way to improve the code would be to move the `isPlatformSegmentSolid()` method to the `PlatformSegment` class, as this logic is purely concerned with the `PlatformSegment` class.
+
+**THE WHOLE CODE SMELLS**
 
 ### TESTING
 
@@ -94,5 +99,5 @@ A way to improve the code would be to move the `isPlatformSegmentSolid()` method
 **Example**:
 
 - Iraklis Konsoulas : 25%
-- João Aires Gonçalves : 32.5%
-- Diogo Filipe Faia Nunes : 32.5%
+- João Aires Gonçalves : 37.5%
+- Diogo Filipe Faia Nunes : 37.5%
