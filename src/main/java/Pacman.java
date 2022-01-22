@@ -13,6 +13,6 @@ public class Pacman extends GameCharacter {
         graphics.setForegroundColor(TextColor.Factory.fromString("#FFFF33"));
         graphics.enableModifiers(SGR.BOLD);
         graphics.putString(new TerminalPosition(position.getX(), position.getY()), "X");
-        graphics.setCharacter(position.getX(), position.getY(), TextCharacter.fromCharacter('C')[0]);
+        graphics.setCharacter(position.getX(), position.getY(), TextCharacter.fromCharacter('*')[0]);
     }
 }
