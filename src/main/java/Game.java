@@ -50,16 +50,16 @@ public class Game {
             this.screen = new TerminalScreen(terminal);
             this.screen.setCursorPosition(null);   // we don't need a cursor
             this.screen.startScreen();             // screens must be started
-            this. screen.doResizeIfNecessary();     // resize screen if necessary
+            this.screen.doResizeIfNecessary();     // resize screen if necessary
 
             //this. screen.setCharacter(10, 10, TextCharacter.fromCharacter('C')[0]);
             //this.screen.refresh();
 
 
-
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         MapReader mapReader = new MapReader(new File("basemaze.txt"));//TODO: Un-hardcode this
         this.maze = new Maze(mapReader.readMap());
         this.fps = 10;
