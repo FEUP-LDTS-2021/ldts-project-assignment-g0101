@@ -59,7 +59,7 @@ public class Game {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        MapReader mapReader = new MapReader(new File("basemaze.txt"));//TODO: Un-hardcode this
+        MapReader mapReader = new MapReader(new File("src/main/java/resources/basemaze.txt"));//TODO: Un-hardcode this
         this.maze = new Maze(mapReader.readMap());
     }
 
