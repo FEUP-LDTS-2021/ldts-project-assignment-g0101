@@ -1,11 +1,9 @@
-Application.java
- Application
-GameCharacter.java
- GameCharacter
 MapReader.java
  MapReader
 Wall.java
  Wall
+Element.java
+ Element
 Position.java
  Position
 Point.java
@@ -14,12 +12,14 @@ Pacman.java
  Pacman
 Ghost.java
  Ghost
-Collision.java
- Collision
-Element.java
- Element
+GameCharacter.java
+ GameCharacter
+Application.java
+ Application
 Maze.java
  Maze
  Maze$1
 Game.java
  Game
+Collision.java
+ Collision

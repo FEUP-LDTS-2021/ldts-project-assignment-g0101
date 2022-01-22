@@ -1,6 +1,7 @@
 plugins {
     id 'java'
 
+//    id 'info.solidsoft.pitest' version '1.6.0'
 //    id "org.kordamp.gradle.errorprone" version "0.47.0" // for code-smells
 }
 
@@ -18,6 +19,10 @@ dependencies {
     implementation group: 'com.googlecode.lanterna', name: 'lanterna', version: '3.1.1'
 
 }
+
+//pitest {
+//    junit5PluginVersion = '0.12'
+//}
 
 test {
     useJUnitPlatform()

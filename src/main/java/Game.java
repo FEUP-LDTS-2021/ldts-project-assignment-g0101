@@ -31,7 +31,7 @@ public class Game {
             e.printStackTrace();
         }
         MapReader mapReader = new MapReader(new File("basemaze.txt"));//TODO: Un-hardcode this
-        this.maze = new Maze(mapReader.readMap());  //TODO: fix Maze's dimensions DONE??(unsure what you mean by this)
+        this.maze = new Maze(mapReader.readMap());
     }
 
     public void run(){  //TODO : make this run on a different thread
@@ -40,7 +40,7 @@ public class Game {
                 this.draw();
                 KeyStroke key = screen.readInput();
 
-                if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'q'){
+                if ((key.getKeyType() == KeyType.Character && key.getCharacter() == 'q')){
                     this.screen.close();
                 }
                 else if (key.getKeyType() == KeyType.EOF){
@@ -48,6 +48,8 @@ public class Game {
                 }
                 this.moveGhosts();
                 this.processKey(key);
+                if(maze.getState()) this.screen.close();
+
 
             } catch (IOException e) {
                 e.printStackTrace();

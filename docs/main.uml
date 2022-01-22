@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>C:/Users/HerculesKonsoulas/GitHub Repos/ldts-project-assignment-g0101/src/main</OriginalElement>
+  <nodes>
+    <node x="770.5238013108944" y="1351.6902155582025">Pacman</node>
+    <node x="141.0837855025602" y="388.3714862214293">Wall</node>
+    <node x="110.56173106500216" y="1068.9744182973927">Position</node>
+    <node x="13.572832254242485" y="583.1163286789559">Element</node>
+    <node x="320.0796585430274" y="1345.8902355959979">Collision</node>
+    <node x="0.0" y="876.3567964613968">Point</node>
+    <node x="1105.2821458293658" y="505.8385650224215">Game</node>
+    <node x="1347.7538021715454" y="505.83856502242156">MapReader</node>
+    <node x="1142.2441894583994" y="998.3126163368077">Ghost</node>
+    <node x="994.4388999756163" y="1190.5422484198816">GameCharacter</node>
+    <node x="639.1687938370529" y="373.8385650224215">Maze</node>
+    <node x="1346.2538021715454" y="616.8385650224216">Application</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Maze" target="Collision" relationship="REALIZATION">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Element" target="Position" relationship="TO_ONE">
+      <point x="0.0" y="0.0" />
+      <point x="181.832542545304" y="847.6298169301642" />
+      <point x="193.14502708800836" y="880.4121704810223" />
+      <point x="197.27702512644044" y="897.4552788244798" />
+      <point x="199.27218325004884" y="914.9748134274492" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Maze" target="Wall" relationship="CREATE">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Maze" target="Pacman" relationship="TO_ONE">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Maze" target="Ghost" relationship="TO_MANY">
+      <point x="0.0" y="0.0" />
+      <point x="1194.7004411128942" y="1006.2613170369075" />
+      <point x="1206.959056913553" y="1020.8071009542109" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Game" target="MapReader" relationship="CREATE">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Maze" target="Point" relationship="TO_MANY">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Maze" target="GameCharacter" relationship="DEPENDENCY">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Ghost" target="Position" relationship="CREATE">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Point" target="Element" relationship="GENERALIZATION">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Wall" target="Position" relationship="DEPENDENCY">
+      <point x="0.0" y="0.0" />
+      <point x="234.9703787838904" y="599.1852346253579" />
+      <point x="236.00991150674017" y="614.895218689513" />
+      <point x="236.26409405462923" y="663.4987602994886" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Wall" target="Element" relationship="GENERALIZATION">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Game" target="Maze" relationship="TO_ONE">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Game" target="Maze" relationship="CREATE">
+      <point x="0.0" y="0.0" />
+      <point x="914.6226695778224" y="600.3486593888421" />
+      <point x="902.8444450605441" y="600.8943652499189" />
+      <point x="891.3245379105399" y="600.4063328047151" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Application" target="Game" relationship="CREATE">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="GameCharacter" target="Element" relationship="GENERALIZATION">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Ghost" target="Element" relationship="DEPENDENCY">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Collision" target="Position" relationship="DEPENDENCY">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Pacman" target="GameCharacter" relationship="GENERALIZATION">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Maze" target="Element" relationship="DEPENDENCY">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Element" target="Position" relationship="CREATE">
+      <point x="0.0" y="0.0" />
+      <point x="185.89642030411244" y="859.1564219205574" />
+      <point x="191.69939530806676" y="875.5076103876612" />
+      <point x="196.2590304585165" y="892.5690054138284" />
+      <point x="198.7240679621659" y="910.1537360129253" />
+      <point x="200.06161703148413" y="944.3770259110229" />
+      <point x="199.4858376508286" y="961.2487803241394" />
+      <point x="199.6467344810205" y="977.8748174457722" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Point" target="Position" relationship="DEPENDENCY">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Maze" target="Pacman" relationship="CREATE">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Collision" target="GameCharacter" relationship="DEPENDENCY">
+      <point x="0.0" y="0.0" />
+      <point x="807.7853445250549" y="1292.5997268650276" />
+      <point x="826.0290580929071" y="1287.03204071056" />
+      <point x="844.8772706689728" y="1282.640575509645" />
+      <point x="882.2856292392578" y="1278.0131671973547" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Maze" target="Wall" relationship="TO_MANY">
+      <point x="0.0" y="0.0" />
+      <point x="344.01903649936446" y="460.3204841272567" />
+      <point x="325.16976714617635" y="455.44669479908754" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Maze" target="Position" relationship="CREATE">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="GameCharacter" target="Position" relationship="CREATE">
+      <point x="0.0" y="0.0" />
+      <point x="550.7894953281187" y="1185.1840961959647" />
+      <point x="531.6240257391037" y="1183.0459684820466" />
+      <point x="512.5344529296475" y="1181.5434410608682" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Pacman" target="Position" relationship="DEPENDENCY">
+      <point x="0.0" y="0.0" />
+      <point x="659.5523513434615" y="1237.2777231382497" />
+      <point x="633.7715224472055" y="1219.5309280284014" />
+      <point x="620.3803557612077" y="1211.394289764555" />
+      <point x="605.7943053807061" y="1203.8057601871005" />
+      <point x="591.2143810741093" y="1197.6393825881341" />
+      <point x="575.9587576007779" y="1192.45698298976" />
+      <point x="560.4410619924196" y="1188.226018297974" />
+      <point x="544.7985931442654" y="1185.2385793749197" />
+      <point x="528.8663379508206" y="1182.9768205746295" />
+      <point x="467.6103084400976" y="1180.0503698187654" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Maze" target="Point" relationship="CREATE">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Ghost" target="GameCharacter" relationship="GENERALIZATION">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Maze" target="Ghost" relationship="CREATE">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Single Cycle" zoom="0.6120768526989936" showDependencies="true" x="748.5000000000002" y="909.5000000000001" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
