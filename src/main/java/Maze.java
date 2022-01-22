@@ -68,7 +68,6 @@ public class Maze implements Collision{
                 }
             }
         }
-
         return false;
     }
 
