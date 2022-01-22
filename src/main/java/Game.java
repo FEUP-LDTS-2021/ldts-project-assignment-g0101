@@ -33,7 +33,7 @@ public class Game {
         }
         MapReader mapReader = new MapReader(new File("basemaze.txt"));//TODO: Un-hardcode this
         this.maze = new Maze(mapReader.readMap());
-        this.fps = 30;
+        this.fps = 10;
     }
 
     public void run(){  //TODO : make this run on a different thread
@@ -44,17 +44,19 @@ public class Game {
 
             try {
                 this.draw();
-                /*KeyStroke key = screen.readInput();
+                KeyStroke key = screen.pollInput();
 
-
-                if ((key.getKeyType() == KeyType.Character && key.getCharacter() == 'q')){
-                    this.screen.close();
-                }
-                else if (key.getKeyType() == KeyType.EOF){
-                    break;
-                }*/
                 this.moveGhosts();
-                //this.processKey(key);
+                if( key != null){
+                    if ((key.getKeyType() == KeyType.Character && key.getCharacter() == 'q')){
+                        this.screen.close();
+                    }
+                    else if (key.getKeyType() == KeyType.EOF){
+                        break;
+                    }
+                    this.processKey(key);
+                }
+
                 if(maze.getState()) this.screen.close();
 
 
