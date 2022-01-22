@@ -50,7 +50,7 @@ public class Maze implements Collision{
 
 
     @Override
-    public boolean characterCanMoveTo( Position position) {
+    public boolean characterCanMoveTo(Position position) {
         for(Wall wall : this.walls){
             if (wall.position.equals(position)) return false;
         }
@@ -73,9 +73,9 @@ public class Maze implements Collision{
     }
 
     @Override
-    public boolean characterInteractsWithEnemy(String pos){
+    public boolean characterInteractsWithEnemy(String direction){
         Position characterPosition;
-        switch(pos){
+        switch(direction){
             case "Up":
                 characterPosition = pacman.getUp();
                 break;
@@ -142,49 +142,49 @@ public class Maze implements Collision{
 
 
     public boolean checkEndMaze(String dest) {
-        Position pos = pacman.getPosition();
+        Position characterPosition = pacman.getPosition();
         switch (dest){
             case "Up":
-                if(pos.getY()-1 < 0) return true;
+                if(characterPosition.getY()-1 < 0) return true;
                 break;
             case "Down":
-                if(pos.getY()+1 >= height) return true;
+                if(characterPosition.getY()+1 >= height) return true;
                 break;
             case "Left":
-                if(pos.getX()-1 < 0) return true;
+                if(characterPosition.getX()-1 < 0) return true;
                 break;
             case "Right":
-                if(pos.getX()+1 >= width) return true;
+                if(characterPosition.getX()+1 >= width) return true;
                 break;
         }
         return false;
     }
 
     public void setPosOpposite(String move){
-        Position start = pacman.getPosition();
+        Position characterPosition = pacman.getPosition();
         switch (move){
             case "Up":
-                pacman.setPosition(new Position(start.getX(),height-1));
+                pacman.setPosition(new Position(characterPosition.getX(),height-1));
                 break;
             case "Down":
-                pacman.setPosition(new Position(start.getX(),0));
+                pacman.setPosition(new Position(characterPosition.getX(),0));
                 break;
             case "Right":
-                pacman.setPosition(new Position(0, start.getY()));
+                pacman.setPosition(new Position(0, characterPosition.getY()));
                 break;
             case "Left":
-                pacman.setPosition(new Position(width-1, start.getY()));
+                pacman.setPosition(new Position(width-1, characterPosition.getY()));
                 break;
         }
     }
 
     public void moveGhosts(){
         for(Ghost g: this.ghosts){
-            Position pos = g.randomMove();
-            while(!characterCanMoveTo(pos) || ghostThere(pos)){
-                pos = g.randomMove();
+            Position newGhostPosition = g.randomMove();
+            while(!characterCanMoveTo(newGhostPosition) || ghostThere(newGhostPosition)){
+                newGhostPosition = g.randomMove();
             }
-            g.setPosition(pos);
+            g.setPosition(newGhostPosition);
         }
     }
 
