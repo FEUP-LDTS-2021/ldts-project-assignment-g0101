@@ -13,6 +13,7 @@ import java.io.IOException;
 public class Game {
     private Screen screen;
     private Maze maze;
+    private final int fps;
 
     public Game() {
         try {
@@ -32,28 +33,43 @@ public class Game {
         }
         MapReader mapReader = new MapReader(new File("basemaze.txt"));//TODO: Un-hardcode this
         this.maze = new Maze(mapReader.readMap());
+        this.fps = 30;
     }
 
     public void run(){  //TODO : make this run on a different thread
+        int frameTime = 1000 / this.fps;
+
         while(true){
+            long startTime = System.currentTimeMillis();
+
             try {
                 this.draw();
-                KeyStroke key = screen.readInput();
+                /*KeyStroke key = screen.readInput();
+
 
                 if ((key.getKeyType() == KeyType.Character && key.getCharacter() == 'q')){
                     this.screen.close();
                 }
                 else if (key.getKeyType() == KeyType.EOF){
                     break;
-                }
+                }*/
                 this.moveGhosts();
-                this.processKey(key);
+                //this.processKey(key);
                 if(maze.getState()) this.screen.close();
 
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
+            long elapsedTime = System.currentTimeMillis() - startTime;
+            long sleepTime = frameTime - elapsedTime;
+            if (sleepTime > 0) try {
+                Thread.sleep(sleepTime);
+            } catch (InterruptedException e) {
+
+            }
+
         }
     }
     private void moveGhosts(){
