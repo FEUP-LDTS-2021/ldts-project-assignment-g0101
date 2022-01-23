@@ -10,18 +10,22 @@ This project was developed by *Iraklis Konsoulas* (*up202102051*@fe.up.pt), *Jo√
 
 - **Ghosts** - There are Ghosts characters inside the game haunting the maze trying to eat the Pac-Man.
     
-    ![Image of the Ghosts](./ghosts.png)
+    ![Image of the Ghosts](./ghosts.PNG)
 - **Points** - When the game character collects all the points layed inside the maze the game finishes.
 
-    ![Image of the Maze with Points](./points.png)
+    ![Image of the Maze with Points](./points.PNG)
 - **Pac-Man** - The user-controlled game character that collects all the points layed inside the maze trying to avoid the ghosts.
 
-    ![Pac-Man passing through one of the exits](./sideExits.png)
+    ![Pac-Man image](./pacman.png)
 - **Side Exits** - When the game character passes through the side exits of the map it immediately appears on the other side of the screeen.
+
+    ![Pac-Man passing through one of the exits](./sideExits.png)
+- **Graphics** - The graphics are implemented using fonts made in FontForge.
+
+    ![Image of the custom characters made in FontForge](./fontForge.png)
 
 ### PLANNED FEATURES
 
-- **Graphics** - The graphics should be improved using either images or fonts made in FontForge.
 - **Power-Ups** - The game character should be able to consume power-ups layed in the maze in order to have the ability to consume ghosts.
 - **Lives** - In the classic arcade game the player has 3 lives to spend trying to finish the game.
 - **Score** - A scoreboard could be kept in order to track the progress in the players' results and increase the competition.
