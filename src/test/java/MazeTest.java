@@ -24,15 +24,16 @@ public class MazeTest {
     @Test
     public void testCollision(){
         createMaze();
-        Assertions.assertTrue(maze.characterCanMoveTo(new Position(0,1)));
-        Assertions.assertFalse(maze.characterCanMoveTo(new Position(1,1)));
+        Assertions.assertTrue(maze.characterCanMoveTo(gameCharacter.getDown()));
+        gameCharacter.moveDown();
+        Assertions.assertFalse(maze.characterCanMoveTo(gameCharacter.getRight()));
     }
 
     @Test
     public void testPointInteraction(){
         createMaze();
-        Assertions.assertTrue(maze.characterInteractsWithPoint(gameCharacter,new Position(0,1)));
-        Assertions.assertFalse(maze.characterInteractsWithPoint(enemy,new Position(0,1)));
+        Assertions.assertTrue(maze.characterInteractsWithPoint(gameCharacter,gameCharacter.getDown()));
+        Assertions.assertFalse(maze.characterInteractsWithPoint(enemy,enemy.getDown()));
     }
 
     @Test

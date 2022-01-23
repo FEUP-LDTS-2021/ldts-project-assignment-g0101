@@ -1,14 +1,14 @@
-WallTest.java
- WallTest
-PointTest.java
- PointTest
 PositionTest.java
  PositionTest
-GameCharacterTest.java
- GameCharacterTest
 GhostTest.java
  GhostTest
 PacmanTest.java
  PacmanTest
+PointTest.java
+ PointTest
+WallTest.java
+ WallTest
+GameCharacterTest.java
+ GameCharacterTest
 MazeTest.java
  MazeTest
