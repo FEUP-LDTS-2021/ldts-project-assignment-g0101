@@ -21,6 +21,8 @@ Element.java
  Element
 Application.java
  Application
+Maze.java
+ Maze
 Game.java
  Game
  Game$1
