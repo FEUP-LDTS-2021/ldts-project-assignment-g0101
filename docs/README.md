@@ -79,31 +79,35 @@ The use of the State Pattern in the current design allows the following benefits
 
 ### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
 
-> This section should describe 3 to 5 different code smells that you have identified in your current implementation, and suggest ways in which the code could be refactored to eliminate them. Each smell and refactoring suggestions should be described in its own subsection.
+#### MAZE CLASS
 
-**Example of such a subsection**:
+The method `processKey` is too long, it can affect readability.
 
-#### DATA CLASS
+A way to improve is to divide each direction in different methods.
 
-The `PlatformSegment` class is a **Data Class**, as it contains only fields, and no behavior. This is problematic because […].
+The maze class does too much, making some classes lazy.
 
-A way to improve the code would be to move the `isPlatformSegmentSolid()` method to the `PlatformSegment` class, as this logic is purely concerned with the `PlatformSegment` class.
+There are several methods that should be in each character instead of maze, such as `characterInteractsWithEnemy` and `characterInteractsWithPoint`.
 
-**THE WHOLE CODE SMELLS**
+To improve this these methods should be in the Game Characters class.
+
+#### PACMAN CLASS
+
+The pacman class is a lazy class. It should be responsible for the movement of pacman.
+
+A way to improve this is to create a method in the pacman class that maze can call in order to move pacman.
 
 ### TESTING
 
 - Coverage Testing Results
-![Screenshot of coverage report](./TestCoverage.png)
-- Mutation Testing Report [here]() and Results :
-![Screenshot of mutation report]()
+
+![Screenshot of coverage report](./TestCoverage.PNG)
+
+- Mutation Testing:
+We couldn't make this test, only errors showed.
 
 ### SELF-EVALUATION
 
-> In this section describe how the work regarding the project was divided between the students. In the event that members of the group do not agree on a work distribution, the group should send an email to the teacher explaining the disagreement.
-
-**Example**:
-
-- Iraklis Konsoulas : 25%
-- João Aires Gonçalves : 37.5%
-- Diogo Filipe Faia Nunes : 37.5%
+- Iraklis Konsoulas : 15%
+- João Aires Gonçalves : 42.5%
+- Diogo Filipe Faia Nunes : 42.5%
